@@ -2,10 +2,10 @@ pipeline {
   agent any
   stages {
 
-  stage('Stage 1- Deploy Backend API using RAW github URI containing SWAPI OAS3 specification document.') {
+  stage('Stage 1- Deploy Backend API') {
       steps {
         script {
-          echo 'Stage 2 - Deploy the Pensions API Swagger spec towards Axway API Manager via the API Manager REST API'
+          echo 'Stage 1 - Deploy the Star Wars API using the RAW github URI containing SWAPI OAS3 specification document towards Axway API Manager via the API Manager REST API'
 		
    		  def jsonString2 = httpRequest url: "https://apimanager.axwaydemo.co.uk/api/portal/v1.3/apirepo/importFromUrl" ,
 										customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE3"],
@@ -19,10 +19,10 @@ pipeline {
       }
     }
   
-  stage('Stage 2- Deploy Frontend API and virtualise SWAPI frontend.') {
+  stage('Stage 2- Deploy Frontend API and virtualise SWAPI') {
       steps {
         script {
-          echo 'Stage 3 - Deploy the Backend API into a Frontend API proxy'
+          echo 'Stage 2 - Deploy the Backend API into a Frontend API proxy'
 		
    		  httpRequest url: "https://apimanager.axwaydemo.co.uk/api/portal/v1.3/proxies" ,
 			  customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE3"],
