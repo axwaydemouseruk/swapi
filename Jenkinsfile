@@ -1,25 +1,7 @@
 pipeline {
   agent any
   stages {
-  stage('Stage 1- Discover Swagger') {
-      steps {
-        script {
-          echo 'Stage 1 - Discover the Swagger spec raw URL by querying the Swagger API'
-	
-	      def jsonString = httpRequest url: "https://raw.githubusercontent.com/axwaydemouseruk/swapi/main/swapi_swagger.yaml" ,
-		                               customHeaders:[[name:'Authorization', value:"Basic YXh3YXlkZW1vdXNlcnVrOjkwNTAzZGYzYmE0ZDRiOWY0NTYwMWVmZTFjZDFiMzczZmY4N2RkMDQ"]]
 
-                  println("Content: "+jsonString.content)
-
-		  jsonObj = readJSON text: jsonString.content
-		
-		  println("The URL to fetch our Swagger Spec is: "+jsonObj.download_url)
-		  
-		  println("The form body for the next request looks like: "+"url=${jsonObj.download_url}&type=swagger&organizationId=eda42491-578a-4024-ae1d-c767f33a90fd&name=testfile102")
-				  
-        }
-      }
-    }
   stage('Stage 2- Deploy Backend API') {
       steps {
         script {
@@ -29,7 +11,7 @@ pipeline {
 										customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE3"],
 										[name:'Content-Type'  , value:"application/x-www-form-urlencoded"]],
 			  httpMode: "POST",
-			  requestBody: "url=${jsonObj.download_url}&type=swagger&organizationId=eda42491-578a-4024-ae1d-c767f33a90fd&name=Pensions Test API"
+			  requestBody: "url=https://raw.githubusercontent.com/axwaydemouseruk/swapi/main/swapi_swagger.yaml&type=swagger&organizationId=eda42491-578a-4024-ae1d-c767f33a90fd&name=Pensions Test API"
 			  
 		  jsonObj2 = readJSON text: jsonString2.content
 
