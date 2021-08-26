@@ -6,7 +6,7 @@ pipeline {
         script {
           echo 'Stage 1 - Discover the Swagger spec raw URL by querying the Swagger API'
 	
-	      def jsonString = httpRequest url: "https://api.github.com/repos/axwaydemouseruk/blob/main/swapi/swapi_swagger.yaml" ,
+	      def jsonString = httpRequest url: "https://api.github.com/repos/axwaydemouseruk/swapi/blob/main/swapi_swagger.yaml" ,
 		                               customHeaders:[[name:'Authorization', value:"Basic YXh3YXlkZW1vdXNlcnVrOjkwNTAzZGYzYmE0ZDRiOWY0NTYwMWVmZTFjZDFiMzczZmY4N2RkMDQ"]]
 
                   println("Content: "+jsonString.content)
