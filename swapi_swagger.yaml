@@ -1,11 +1,11 @@
 openapi: 3.0.0
 info:
-  title: SWAPI
-  description: Optional multiline or single-line description in [CommonMark](http://commonmark.org/help/) or HTML.
-  version: 0.2.0
+  title: SWAPI (Star Wars API)
+  description: This OAS3 document (f.k.a. Swagger) describes the Star Wars API, and can be used to import the API into Axway Amplify.
+  version: 0.3.0
 servers:
   - url: https://swapi.dev/api
-    description: Optional server description, e.g. Main (production) server
+    description: The above resource is provided by the owner of Swapi, and is not an Axway resource.
 
 paths:
   /people:
