@@ -35,6 +35,13 @@ paths:
                 items: 
                   type: string
   /people/{personId}:
+    parameters:
+    - name: personID
+      in: path
+      required: true
+      description: A numerical integer that identifies the specific Star Wars Character.
+      schema:
+        type: integer
     get:
       summary: Returns a list of People.
       description: Returns a specific character from the Star Wars film series based on personID, a numerical identifier.
