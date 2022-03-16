@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
   title: SWAPI (Star Wars API)
-  description: 'This OAS3 document (f.k.a. Swagger) describes the Star Wars API, and can be used to import the API into Axway Amplify.'
-  version: 0.17.0
+  description: 'This OAS3 document (f.k.a. Swagger) describes the Star Wars API, and can be used to import the API into Axway Amplify. A few changes with Andy.'
+  version: 0.18.0
 servers:
   - url: 'https://swapi.dev/api'
     description: 'The above resource is provided by the owner of Swapi, and is not an Axway resource.'
