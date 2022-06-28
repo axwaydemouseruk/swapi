@@ -39,9 +39,9 @@ pipeline {
           echo 'Stage 3 - Add image to API'
 		
 		def response = httpRequest acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_FORM_DATA',
-                           formData: [[
-                           contentType: 'image/jpng', fileName: 'icon.png', name: 'data',
-                           uploadFile: '/home/azureuser/images/stormtrooper_icon.PNG']],
+                           formData: [
+			   [ contentType: 'image/jpng', name: 'file', fileName: 'icon.png', uploadFile: '/home/azureuser/images/stormtrooper_icon.PNG'
+			   ],
                            httpMode: 'POST', quiet: true, responseHandle: 'NONE', timeout: null,
                            url: "https://apimanager.axwaydemo.co.uk/api/portal/v1.4/proxies/${jsonObj2.id}/image" ,
 			   customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE4"],
