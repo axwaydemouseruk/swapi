@@ -38,17 +38,18 @@ pipeline {
         script {
           echo 'Stage 3 - Add image to API'
 		
-		def response = httpRequest httpMode: 'POST', contentType 'APPLICATION_FORM',
-                           formData: [
-		           [contentType: 'image/png', name: 'file', fileName: 'readme.txt', uploadFile: '/home/azureuser/images/stormtrooper_icon.PNG']
-			   ],
-                           quiet: false, responseHandle: 'NONE', timeout: null,
-                           url: "https://apimanager.axwaydemo.co.uk/api/portal/v1.4/proxies/${jsonObj2.id}/image" ,
-			   customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE4"]],
-                           consoleLogResponseBody: true,
-                           validResponseCodes: '200,404,415'		
-		           println('Status: '+response.status)
-                           println('Response: '+response.content)
+//		def response = httpRequest httpMode: 'POST', contentType 'APPLICATION_FORM',
+//                           formData: [
+//		           [contentType: 'image/png', name: 'file', fileName: 'readme.txt', uploadFile: '/home/azureuser/images/stormtrooper_icon.PNG']
+//			   ],
+//                           quiet: false, responseHandle: 'NONE', timeout: null,
+//                           url: "https://apimanager.axwaydemo.co.uk/api/portal/v1.4/proxies/${jsonObj2.id}/image" ,
+//			   customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE4"]],
+//                           consoleLogResponseBody: true,
+//                           validResponseCodes: '200,404,415'		
+//
+//		           println('Status: '+response.status)
+//                           println('Response: '+response.content)
 		           def response = sh(script: "curl -L -X POST \'https://apimanager.axwaydemo.co.uk/api/portal/v1.4/proxies/df631390-0cdc-41e7-ade5-4ce4fcd81448/image\' -H \'Authorization: Basic YXBpYWRtaW46U3BhY2UqMTE4\' -F \'file=@\"/home/azureuser/images/stormtrooper_icon.PNG\"\' ", returnStdout: true)
 
 		
