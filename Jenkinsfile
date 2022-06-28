@@ -38,11 +38,11 @@ pipeline {
         script {
           echo 'Stage 3 - Add image to API'
 		
-		def response = httpRequest
+		def response = httpRequest httpMode: 'POST',
                            formData: [
 			   [ name: 'file', fileName: 'icon.png', uploadFile: '/home/azureuser/images/stormtrooper_icon.PNG' ]
 			   ],
-                           httpMode: 'POST', quiet: false, responseHandle: 'NONE', timeout: null,
+                           quiet: false, responseHandle: 'NONE', timeout: null,
                            url: "https://apimanager.axwaydemo.co.uk/api/portal/v1.4/proxies/${jsonObj2.id}/image" ,
 			   customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE4"]],
                            validResponseCodes: '200,404', validResponseContent: 'token'		
