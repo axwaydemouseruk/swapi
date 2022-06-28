@@ -44,7 +44,7 @@ pipeline {
 			   ],
                            httpMode: 'POST', quiet: false, responseHandle: 'NONE', timeout: null,
                            url: "https://apimanager.axwaydemo.co.uk/api/portal/v1.4/proxies/${jsonObj2.id}/image" ,
-			   customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE4"],
+			   customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE4"]]
                            validResponseCodes: '200,404', validResponseContent: 'token'		
 		
 		
