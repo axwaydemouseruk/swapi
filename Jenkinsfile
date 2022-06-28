@@ -48,11 +48,11 @@ pipeline {
 //                           consoleLogResponseBody: true,
 //                           validResponseCodes: '200,404,415'		
 		
-def response =  httpRequest  contentType: 'APPLICATION_ZIP',
-                         customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE4"]],
-                         httpMode: 'POST', multipartName: 'icon.png', timeout: null,
-                         responseHandle: 'NONE', uploadFile: "/home/azureuser/images/stormtrooper_icon.PNG",
-                           quiet: false, responseHandle: 'NONE', timeout: null,
+def response =  httpRequest  httpMode: 'POST',
+                           customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE4"]],
+                           httpMode: 'POST', multipartName: 'icon.png', timeout: null,
+                           responseHandle: 'NONE', uploadFile: "/home/azureuser/images/stormtrooper_icon.PNG",
+                           quiet: false, timeout: null,
                            url: "https://apimanager.axwaydemo.co.uk/api/portal/v1.4/proxies/${jsonObj2.id}/image" ,
                            consoleLogResponseBody: true,
                            validResponseCodes: '200,404,415'	
