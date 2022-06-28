@@ -24,12 +24,13 @@ pipeline {
         script {
           echo 'Stage 2 - Deploy the Backend API into a Frontend API proxy'
 		
-   		  httpRequest url: "https://apimanager.axwaydemo.co.uk/api/portal/v1.4/proxies" ,
+   		  def jsonString3 = httpRequest url: "https://apimanager.axwaydemo.co.uk/api/portal/v1.4/proxies" ,
 			  customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE4"],
 					 [name:'Content-Type'  , value:"application/json"]],
 			  httpMode: "POST",
 			  requestBody: "{\"organizationId\": \"eda42491-578a-4024-ae1d-c767f33a90fd\",\"apiId\": \"${jsonObj2.id}\",\"name\": \"Star Wars API Virtual Frontend\",\"version\": \"${jsonObj2.version}\",\"retired\": false,\"expired\": false,\"path\": \"/swapi/v${jsonObj2.version}\",\"securityProfiles\": [{\"name\": \"_default\",\"isDefault\": true,\"devices\": [{\"name\": \"Pass Through\",\"type\": \"passThrough\",\"order\": 1,\"properties\": {\"subjectIdFieldName\": \"Pass Through\",\"removeCredentialsOnSuccess\": \"true\"}}]}]}"
-        }
+                  jsonObj3 = readJSON text: jsonString3.id
+	}
       }
     }
 	  
@@ -49,7 +50,7 @@ pipeline {
 //                           validResponseCodes: '200,404,415'		
 //
 
-		           def response = sh(script: "curl -vvv --insecure -L -X POST \'https://10.0.2.4:8075/api/portal/v1.4/proxies/${jsonObj2.id}/image\' -H \'Authorization: Basic YXBpYWRtaW46U3BhY2UqMTE4\' -F \'file=@\"/home/azureuser/images/stormtrooper_icon.PNG\"\' ", returnStdout: true)
+		           def response = sh(script: "curl -vvv --insecure -L -X POST \'https://10.0.2.4:8075/api/portal/v1.4/proxies/${jsonObj3.id}/image\' -H \'Authorization: Basic YXBpYWRtaW46U3BhY2UqMTE4\' -F \'file=@\"/home/azureuser/images/stormtrooper_icon.PNG\"\' ", returnStdout: true)
 		           println('Status: '+response.status)
                            println('Response: '+response.content)
 		
