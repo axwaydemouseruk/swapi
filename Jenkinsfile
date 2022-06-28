@@ -38,16 +38,24 @@ pipeline {
         script {
           echo 'Stage 3 - Add image to API'
 		
-		def response = httpRequest httpMode: 'POST',
-                           formData: [
-			   [ fileName: 'icon.png', uploadFile: '/home/azureuser/images/stormtrooper_icon.PNG' ]
-			   ],
+//		def response = httpRequest httpMode: 'POST',
+//                           formData: [
+//			   [ contentType: 'image/png', fileName: 'icon.png', uploadFile: '/home/azureuser/images/stormtrooper_icon.PNG' ]
+//			   ],
+//                           quiet: false, responseHandle: 'NONE', timeout: null,
+//                           url: "https://apimanager.axwaydemo.co.uk/api/portal/v1.4/proxies/${jsonObj2.id}/image" ,
+//			   customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE4"]],
+//                           consoleLogResponseBody: true,
+//                           validResponseCodes: '200,404,415'		
+		
+def response =  httpRequest  contentType: 'APPLICATION_ZIP',
+                         customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE4"]],
+                         httpMode: 'POST', multipartName: 'icon.png', timeout: null,
+                         responseHandle: 'NONE', uploadFile: "/home/azureuser/images/stormtrooper_icon.PNG"),
                            quiet: false, responseHandle: 'NONE', timeout: null,
                            url: "https://apimanager.axwaydemo.co.uk/api/portal/v1.4/proxies/${jsonObj2.id}/image" ,
-			   customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE4"]],
                            consoleLogResponseBody: true,
-                           validResponseCodes: '200,404,415'		
-		
+                           validResponseCodes: '200,404,415'	
 		
 	}
       }
