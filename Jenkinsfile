@@ -50,7 +50,7 @@ pipeline {
 //
 //		           println('Status: '+response.status)
 //                           println('Response: '+response.content)
-		           def response = sh(script: "curl -vvv -L -X POST \'https://apimanager.axwaydemo.co.uk/api/portal/v1.4/proxies/${jsonObj2.id}/image\' -H \'Authorization: Basic YXBpYWRtaW46U3BhY2UqMTE4\' -F \'file=@\"/home/azureuser/images/stormtrooper_icon.PNG\"\' ", returnStdout: true)
+		           def response = sh(script: "curl -vvv -insecure -L -X POST \'https://10.0.2.4:8075/api/portal/v1.4/proxies/${jsonObj2.id}/image\' -H \'Authorization: Basic YXBpYWRtaW46U3BhY2UqMTE4\' -F \'file=@\"/home/azureuser/images/stormtrooper_icon.PNG\"\' ", returnStdout: true)
 
 		
 	}
