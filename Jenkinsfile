@@ -49,7 +49,8 @@ pipeline {
                            validResponseCodes: '200,404,415'		
 		           println('Status: '+response.status)
                            println('Response: '+response.content)
-		
+		           def response = sh(script: "curl -L -X POST \'https://apimanager.axwaydemo.co.uk/api/portal/v1.4/proxies/df631390-0cdc-41e7-ade5-4ce4fcd81448/image\' -H \'Authorization: Basic YXBpYWRtaW46U3BhY2UqMTE4\' -F \'file=@\"/home/azureuser/images/stormtrooper_icon.PNG\"\' ", returnStdout: true)
+
 		
 	}
       }
