@@ -38,18 +38,9 @@ pipeline {
         script {
           echo 'Stage 3 - Add image to API'
 		
-		httpRequest url: "https://apimanager.axwaydemo.co.uk/api/portal/v1.4/proxies/${jsonObj2.id}/image" ,
-			  customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE4"],
-					 [name:'Content-Type'  , value:"application/json"]],
-			  httpMode: "POST",
-			  requestBody: "{\"organizationId\": \"eda42491-578a-4024-ae1d-c767f33a90fd\",\"apiId\": \"${jsonObj2.id}\",\"name\": \"Star Wars API Virtual Frontend\",\"version\": \"${jsonObj2.version}\",\"retired\": false,\"expired\": false,\"path\": \"/swapi/v${jsonObj2.version}\",\"securityProfiles\": [{\"name\": \"_default\",\"isDefault\": true,\"devices\": [{\"name\": \"Pass Through\",\"type\": \"passThrough\",\"order\": 1,\"properties\": {\"subjectIdFieldName\": \"Pass Through\",\"removeCredentialsOnSuccess\": \"true\"}}]}]}"
-
-def response = httpRequest acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_FORM_DATA',
-                           formData: [[body: '''{
-                                         "name" : "example",
-                                         "type" : "bot"
-                                        }''',
-                           contentType: 'image/jpeg', fileName: 'icon.png', name: 'data',
+		def response = httpRequest acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_FORM_DATA',
+                           formData: [[
+                           contentType: 'image/jpng', fileName: 'icon.png', name: 'data',
                            uploadFile: '/home/azureuser/images/stormtrooper_icon.PNG']],
                            httpMode: 'POST', quiet: true, responseHandle: 'NONE', timeout: null,
                            url: "https://apimanager.axwaydemo.co.uk/api/portal/v1.4/proxies/${jsonObj2.id}/image" ,
