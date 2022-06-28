@@ -40,7 +40,7 @@ pipeline {
 		
 		def response = httpRequest httpMode: 'POST',
                            formData: [
-			   [ file: 'icon.png', uploadFile: '/home/azureuser/images/stormtrooper_icon.PNG' ]
+			   [ fileName: 'icon.png', uploadFile: '/home/azureuser/images/stormtrooper_icon.PNG' ]
 			   ],
                            quiet: false, responseHandle: 'NONE', timeout: null,
                            url: "https://apimanager.axwaydemo.co.uk/api/portal/v1.4/proxies/${jsonObj2.id}/image" ,
