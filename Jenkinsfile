@@ -47,6 +47,8 @@ pipeline {
 			   customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE4"]],
                            consoleLogResponseBody: true,
                            validResponseCodes: '200,404,415'		
+		           println('Status: '+response.status)
+                           println('Response: '+response.content)
 		
 		
 	}
