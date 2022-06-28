@@ -38,7 +38,7 @@ pipeline {
         script {
           echo 'Stage 3 - Add image to API'
 		
-		def response = httpRequest httpMode: 'POST',
+		def response = httpRequest httpMode: 'POST', contentType: 'APPLICATION_FORM_DATA',
                            formData: [
 			   [ name: 'file', fileName: 'icon.png', uploadFile: '/home/azureuser/images/stormtrooper_icon.PNG' ]
 			   ],
