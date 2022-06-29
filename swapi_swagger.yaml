@@ -65,12 +65,12 @@ paths:
       description: Retrieves a list of all star wars Star Ships.
   '/starships/{starshipId}':
     get:
-      summary: Returns a list of Star Ships
+      summary: Returns a Star Ship by ID
       tags: []
       responses:
         '200':
           description: OK
-      operationId: get-starships
+      operationId: get-starship
       parameters: []
       description: Retrieves a particular star wars Star Ship by ID.
     parameters:
