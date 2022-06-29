@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: SWAPI (Star Wars API)
   description: 'This OAS3 document (f.k.a. Swagger) describes the Star Wars API, and can be used to import the API into Axway Amplify. A few changes with Anthony Badger. Now we''ve added even more fun features, including API docs for v.34!'
-  version: 0.34.0
+  version: 0.35.0
 servers:
   - url: 'https://swapi.dev/api'
     description: 'The above resource is provided by the owner of Swapi, and is not an Axway resource.'
@@ -63,3 +63,19 @@ paths:
       operationId: get-starships
       parameters: []
       description: Retrieves a list of all star wars Star Ships.
+  '/starships{starshipId}':
+    get:
+      summary: Returns a list of Star Ships
+      tags: []
+      responses:
+        '200':
+          description: OK
+      operationId: get-starships
+      parameters: []
+      description: Retrieves a particular star wars Star Ship by ID.
+    parameters:
+      - schema:
+          type: string
+        name: starshipId
+        in: path
+        required: true
