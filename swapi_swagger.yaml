@@ -79,3 +79,10 @@ paths:
         name: starshipId
         in: path
         required: true
+  /species:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-species
+      description: Returns a list of Star Wars species
