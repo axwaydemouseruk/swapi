@@ -5,7 +5,7 @@ info:
     This OAS3 document (f.k.a. Swagger) describes the Star Wars API, and can be used to import the API into Axway Amplify. A few changes with Anthony Badger. Now we've added even more fun features, including API docs for v.34!
 
     ![](https://www.tmforum.org/wp-content/uploads/2020/11/APIBadge.wShadow.GOLD_.png)
-  version: 0.43.0
+  version: 0.44.0
 servers:
   - url: 'https://swapi.dev/api'
     description: 'The above resource is provided by the owner of Swapi, and is not an Axway resource.'
@@ -60,14 +60,18 @@ paths:
     get:
       summary: Returns a list of Species
       tags: []
-      responses: {}
-      operationId: get-species
+      responses:
+        '200':
+          description: OK
+      operationId: ''
       description: Returns a list of Star Wars species
   '/species/{speciesId}':
     get:
       summary: Returns an Individual Species
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
       operationId: get-species
       description: Returns a Star Wars species by ID
     parameters:
