@@ -5,7 +5,7 @@ info:
     This OAS3 document (f.k.a. Swagger) describes the Star Wars API, and can be used to import the API into Axway Amplify. A few changes with Anthony Badger. Now we've added even more fun features, including API docs for v.34!
 
     ![](https://www.tmforum.org/wp-content/uploads/2020/11/APIBadge.wShadow.GOLD_.png)
-  version: 0.40.0
+  version: 0.42.0
 servers:
   - url: 'https://swapi.dev/api'
     description: 'The above resource is provided by the owner of Swapi, and is not an Axway resource.'
