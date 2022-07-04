@@ -5,7 +5,7 @@ info:
     This OAS3 document (f.k.a. Swagger) describes the Star Wars API, and can be used to import the API into Axway Amplify. A few changes with Anthony Badger. Now we've added even more fun features, including API docs for v.34!
 
     ![](https://www.tmforum.org/wp-content/uploads/2020/11/APIBadge.wShadow.GOLD_.png)
-  version: 0.44.0
+  version: 0.46.0
 servers:
   - url: 'https://swapi.dev/api'
     description: 'The above resource is provided by the owner of Swapi, and is not an Axway resource.'
@@ -23,6 +23,7 @@ paths:
                 type: array
                 items:
                   type: string
+      operationId: get-people
   '/people/{personId}':
     parameters:
       - name: personId
@@ -43,6 +44,7 @@ paths:
                 type: array
                 items:
                   type: string
+      operationId: get-people-by-id
   /planets:
     get:
       summary: Returns a list of Planets.
@@ -56,6 +58,7 @@ paths:
                 type: array
                 items:
                   type: string
+      operationId: get-planets
   /species:
     get:
       summary: Returns a list of Species
@@ -63,23 +66,8 @@ paths:
       responses:
         '200':
           description: OK
-      operationId: ''
-      description: Returns a list of Star Wars species
-  '/species/{speciesId}':
-    get:
-      summary: Returns an Individual Species
-      tags: []
-      responses:
-        '200':
-          description: OK
       operationId: get-species
-      description: Returns a Star Wars species by ID
-    parameters:
-      - schema:
-          type: string
-        name: speciesId
-        in: path
-        required: true
+      description: Returns a list of Star Wars species
   /starships:
     get:
       summary: Returns a list of Star Ships
@@ -90,6 +78,21 @@ paths:
       operationId: get-starships
       parameters: []
       description: Retrieves a list of all star wars Star Ships.
+  '/species/{speciesId}':
+    get:
+      summary: Returns an Individual Species
+      tags: []
+      responses:
+        '200':
+          description: OK
+      operationId: get-species-by-id
+      description: Returns a Star Wars species by ID
+    parameters:
+      - schema:
+          type: string
+        name: speciesId
+        in: path
+        required: true
   '/starships/{starshipId}':
     get:
       summary: Returns a Star Ship by ID
@@ -97,7 +100,7 @@ paths:
       responses:
         '200':
           description: OK
-      operationId: get-starship
+      operationId: get-starships-by-id
       parameters: []
       description: Retrieves a particular star wars Star Ship by ID.
     parameters:
@@ -106,3 +109,12 @@ paths:
         name: starshipId
         in: path
         required: true
+  /films:
+    get:
+      summary: Returns a list of Star Wars films
+      tags: []
+      responses:
+        '200':
+          description: OK
+      operationId: get-films
+      description: Returns a list of Star Wars movies.
