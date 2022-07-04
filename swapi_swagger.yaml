@@ -7,10 +7,9 @@ info:
     Now we've added even more fun features, including API docs and linting/badging!
 
     ![](https://www.tmforum.org/wp-content/uploads/2020/11/APIBadge.wShadow.GOLD_.png)
-  version: 0.48.0
+  version: 0.49.0
   contact:
-    name: David
-    url: Luke
+    name: David Luke
     email: dluke@axway.com
 servers:
   - url: 'https://swapi.dev/api'
