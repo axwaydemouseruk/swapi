@@ -5,7 +5,11 @@ info:
     This OAS3 document (f.k.a. Swagger) describes the Star Wars API, and can be used to import the API into Axway Amplify. A few changes with Anthony Badger. Now we've added even more fun features, including API docs for v.34!
 
     ![](https://www.tmforum.org/wp-content/uploads/2020/11/APIBadge.wShadow.GOLD_.png)
-  version: 0.46.0
+  version: 0.47.0
+  contact:
+    name: David
+    url: Luke
+    email: dluke@axway.com
 servers:
   - url: 'https://swapi.dev/api'
     description: 'The above resource is provided by the owner of Swapi, and is not an Axway resource.'
@@ -23,7 +27,13 @@ paths:
                 type: array
                 items:
                   type: string
+              examples:
+                example-1:
+                  value:
+                    - string
       operationId: get-people
+      tags:
+        - people
   '/people/{personId}':
     parameters:
       - name: personId
@@ -45,6 +55,8 @@ paths:
                 items:
                   type: string
       operationId: get-people-by-id
+      tags:
+        - people
   /planets:
     get:
       summary: Returns a list of Planets.
@@ -59,10 +71,13 @@ paths:
                 items:
                   type: string
       operationId: get-planets
+      tags:
+        - planets
   /species:
     get:
       summary: Returns a list of Species
-      tags: []
+      tags:
+        - species
       responses:
         '200':
           description: OK
@@ -71,7 +86,8 @@ paths:
   /starships:
     get:
       summary: Returns a list of Star Ships
-      tags: []
+      tags:
+        - starships
       responses:
         '200':
           description: OK
@@ -81,7 +97,8 @@ paths:
   '/species/{speciesId}':
     get:
       summary: Returns an Individual Species
-      tags: []
+      tags:
+        - species
       responses:
         '200':
           description: OK
@@ -96,7 +113,8 @@ paths:
   '/starships/{starshipId}':
     get:
       summary: Returns a Star Ship by ID
-      tags: []
+      tags:
+        - starships
       responses:
         '200':
           description: OK
@@ -112,9 +130,16 @@ paths:
   /films:
     get:
       summary: Returns a list of Star Wars films
-      tags: []
+      tags:
+        - films
       responses:
         '200':
           description: OK
       operationId: get-films
       description: Returns a list of Star Wars movies.
+tags:
+  - name: films
+  - name: people
+  - name: planets
+  - name: species
+  - name: starships
