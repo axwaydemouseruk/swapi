@@ -7,7 +7,7 @@ info:
     Now we've added even more fun features, including API docs and linting/badging!
 
     ![](https://www.tmforum.org/wp-content/uploads/2020/11/APIBadge.wShadow.GOLD_.png)
-  version: 0.49.0
+  version: 0.50.0
   contact:
     name: David Luke
     email: dluke@axway.com
@@ -34,7 +34,7 @@ paths:
                     - string
       operationId: get-people
       tags:
-        - people
+        - People
   '/people/{personId}':
     parameters:
       - name: personId
@@ -57,7 +57,7 @@ paths:
                   type: string
       operationId: get-people-by-id
       tags:
-        - people
+        - People
   /planets:
     get:
       summary: Returns a list of Planets.
@@ -73,38 +73,38 @@ paths:
                   type: string
       operationId: get-planets
       tags:
-        - planets
+        - Planets
   /species:
     get:
       summary: Returns a list of Species
-      tags:
-        - species
       responses:
         '200':
           description: OK
       operationId: get-species
       description: Returns a list of Star Wars species
+      tags:
+        - Species
   /starships:
     get:
       summary: Returns a list of Star Ships
-      tags:
-        - starships
       responses:
         '200':
           description: OK
       operationId: get-starships
       parameters: []
       description: Retrieves a list of all star wars Star Ships.
+      tags:
+        - Starships
   '/species/{speciesId}':
     get:
       summary: Returns an Individual Species
-      tags:
-        - species
       responses:
         '200':
           description: OK
       operationId: get-species-by-id
       description: Returns a Star Wars species by ID
+      tags:
+        - Species
     parameters:
       - schema:
           type: string
@@ -114,14 +114,14 @@ paths:
   '/starships/{starshipId}':
     get:
       summary: Returns a Star Ship by ID
-      tags:
-        - starships
       responses:
         '200':
           description: OK
       operationId: get-starships-by-id
       parameters: []
       description: Retrieves a particular star wars Star Ship by ID.
+      tags:
+        - Starships
     parameters:
       - schema:
           type: string
@@ -131,16 +131,16 @@ paths:
   /films:
     get:
       summary: Returns a list of Star Wars films
-      tags:
-        - films
       responses:
         '200':
           description: OK
       operationId: get-films
       description: Returns a list of Star Wars movies.
+      tags:
+        - Films
 tags:
-  - name: films
-  - name: people
-  - name: planets
-  - name: species
-  - name: starships
+  - name: Films
+  - name: People
+  - name: Planets
+  - name: Species
+  - name: Starships
