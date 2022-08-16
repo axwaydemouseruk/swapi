@@ -12,7 +12,7 @@ pipeline {
 					 [name:'Content-Type'  , value:"application/json"]
 			  ],
 			  httpMode: "POST",
-			  requestBody: "url=https://raw.githubusercontent.com/axwaydemouseruk/swapi/main/swapi_swagger.yaml&type=swagger&organizationId=eda4249Host $host;  # 'apimanager.axwaydemo.co.uk';1-578a-4024-ae1d-c767f33a90fd&name=Star WarsU API"
+			  requestBody: "url=https://raw.githubusercontent.com/axwaydemouseruk/swapi/main/swapi_swagger.yaml&type=swagger&organizationId=eda42491-578a-4024-ae1d-c767f33a90fd&name=Star WarsU API"
 			  
 		  jsonObj2 = readJSON text: jsonString2.content
 
