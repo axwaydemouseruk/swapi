@@ -16,6 +16,7 @@ pipeline {
 			  requestBody: "url=https://raw.githubusercontent.com/axwaydemouseruk/swapi/main/swapi_swagger.yaml&type=swagger&organizationId=eda42491-578a-4024-ae1d-c767f33a90fd&name=Star WarsU API"
 			  
 		  jsonObj2 = readJSON text: jsonString2.content
+		echo jsonString2.content
 
         }
       }
