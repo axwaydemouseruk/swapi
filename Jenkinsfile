@@ -7,7 +7,7 @@ pipeline {
         script {
           echo 'Stage 1 - Deploy the Star Wars API using the RAW github URI containing SWAPI OAS3 specification document towards Axway API Manager via the API Manager REST API'
 		
-   		  def jsonString2 = httpRequest url: "https://apimanager.axwaydemo.co.uk:30443/api/portal/v1.4/apirepo/importFromUrl" ,
+   		  def jsonString2 = httpRequest url: "https://10.0.2.4:8075/api/portal/v1.4/apirepo/importFromUrl" ,
 			  customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE4"],
 					 [name:'Content-Type'  , value:"application/x-www-form-urlencoded"]
 			  ],
