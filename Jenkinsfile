@@ -27,7 +27,7 @@ pipeline {
         script {
           echo 'Stage 2 - Deploy the Backend API into a Frontend API proxy'
 		
-   		  def jsonString3 = httpRequest url: "https://apimanager.axwaydemo.co.uk:30443/api/portal/v1.4/proxies" ,
+   		  def jsonString3 = httpRequest url: "https://10.0.2.4:8075/api/portal/v1.4/proxies" ,
 			  customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE4"],
 					 [name:'Content-Type'  , value:"application/json"]],
 			  httpMode: "POST",
