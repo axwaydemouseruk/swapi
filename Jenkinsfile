@@ -13,7 +13,7 @@ pipeline {
 			  ],
 			  ignoreSslErrors: true,
 			  httpMode: "POST",
-			  requestBody: "url=https://raw.githubusercontent.com/axwaydemouseruk/swapi/main/Jenkinsfile?token=GHSAT0AAAAAABXWBDTCK4LSE3Z7XYZCO2GUYX3QM7AQ&type=swagger&organizationId=eda42491-578a-4024-ae1d-c767f33a90fd&name=Star Wars API"
+			  requestBody: "url=https://raw.githubusercontent.com/axwaydemouseruk/swapi/main/swapi_swagger.yaml&type=swagger&organizationId=eda42491-578a-4024-ae1d-c767f33a90fd&name=Star Wars API"
 			  
 		  jsonObj2 = readJSON text: jsonString2.content
 		echo jsonString2.content
