@@ -8,9 +8,9 @@ pipeline {
           echo 'Stage 1 - Deploy the Star Wars API using the RAW github URI containing SWAPI OAS3 specification document towards Axway API Manager via the API Manager REST API'
 		
    		  def jsonString2 = httpRequest url: "https://apimanager.axwaydemo.co.uk:30443/api/portal/v1.4/apirepo/importFromUrl" ,
-		  	customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE4"],
-				       [name:'Content-Type'  , value:"application/json"]],
-									],
+			  customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE4"],
+					 [name:'Content-Type'  , value:"application/json"]
+			  ],
 			  httpMode: "POST",
 			  requestBody: "url=https://raw.githubusercontent.com/axwaydemouseruk/swapi/main/swapi_swagger.yaml&type=swagger&organizationId=eda4249Host $host;  # 'apimanager.axwaydemo.co.uk';1-578a-4024-ae1d-c767f33a90fd&name=Star WarsU API"
 			  
