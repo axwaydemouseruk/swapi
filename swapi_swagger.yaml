@@ -110,7 +110,7 @@ paths:
                 properties: {}
       operationId: get-starships
       parameters: []
-      description: Retrieves a list of star wars Star Ships.
+      description: Retrieves a list of Star Wars Star Ships.
       tags:
         - Starships
   '/species/{speciesId}':
