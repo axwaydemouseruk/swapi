@@ -7,7 +7,7 @@ pipeline {
         script {
           echo 'Stage 1 - Deploy the Star Wars API using the RAW github URI containing SWAPI OAS3 specification document towards Axway API Manager via the API Manager REST API'
 		
-   		  def jsonString2 = httpRequest url: "https://apimanager.axwaydemo.co.uk/api/portal/v1.4/apirepo/importFromUrl" ,
+   		  def jsonString2 = httpRequest url: "https://apimanager.axwaydemo.co.uk:30443/api/portal/v1.4/apirepo/importFromUrl" ,
 										customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE4"],
 										[name:'Content-Type'  , value:"application/x-www-form-urlencoded"]],
 			  httpMode: "POST",
@@ -24,7 +24,7 @@ pipeline {
         script {
           echo 'Stage 2 - Deploy the Backend API into a Frontend API proxy'
 		
-   		  def jsonString3 = httpRequest url: "https://apimanager.axwaydemo.co.uk/api/portal/v1.4/proxies" ,
+   		  def jsonString3 = httpRequest url: "https://apimanager.axwaydemo.co.uk:30443/api/portal/v1.4/proxies" ,
 			  customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE4"],
 					 [name:'Content-Type'  , value:"application/json"]],
 			  httpMode: "POST",
@@ -44,7 +44,7 @@ pipeline {
 //		           [contentType: 'image/png', name: 'file', fileName: 'readme.txt', uploadFile: '/home/azureuser/images/stormtrooper_icon.PNG']
 //			   ],
 //                           quiet: false, responseHandle: 'NONE', timeout: null,
-//                           url: "https://apimanager.axwaydemo.co.uk/api/portal/v1.4/proxies/${jsonObj2.id}/image" ,
+//                           url: "https://apimanager.axwaydemo.co.uk:30443/api/portal/v1.4/proxies/${jsonObj2.id}/image" ,
 //			   customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE4"]],
 //                           consoleLogResponseBody: true,
 //                           validResponseCodes: '200,404,415'		
