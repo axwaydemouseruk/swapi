@@ -9,9 +9,7 @@ pipeline {
 		
    		  def jsonString2 = httpRequest url: "https://apimanager.axwaydemo.co.uk:30443/api/portal/v1.4/apirepo/importFromUrl" ,
 										customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE4"],
-										[name:'Content-Type'  , value:"application/x-www-form-urlencoded"],
-										[name:'Referer'       , value:"https://apimanager.axwaydemo.co.uk/home"],
-										[name:'Host'          , value:'apimanager.axwaydemo.co.uk']
+											       [name:'Content-Type'  , value:"application/json"]
 									],
 			  httpMode: "POST",
 			  requestBody: "url=https://raw.githubusercontent.com/axwaydemouseruk/swapi/main/swapi_swagger.yaml&type=swagger&organizationId=eda4249Host $host;  # 'apimanager.axwaydemo.co.uk';1-578a-4024-ae1d-c767f33a90fd&name=Star WarsU API"
