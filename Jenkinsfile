@@ -8,7 +8,7 @@ pipeline {
           echo 'Stage 1 - Deploy the Star Wars API using the RAW github URI containing SWAPI OAS3 specification document towards Axway API Manager via the API Manager REST API'
 		
    		  def jsonString2 = httpRequest url: "https://10.0.2.4:8075/api/portal/v1.4/apirepo/importFromUrl" ,
-			  customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE4"],
+			  customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE3"],
 					 [name:'Content-Type'  , value:"application/x-www-form-urlencoded"]
 			  ],
 			  ignoreSslErrors: true,
@@ -28,7 +28,7 @@ pipeline {
           echo 'Stage 2 - Deploy the Backend API into a Frontend API proxy'
 		
    		  def jsonString3 = httpRequest url: "https://10.0.2.4:8075/api/portal/v1.4/proxies" ,
-			  customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE4"],
+			  customHeaders:[[name:'Authorization' , value:"Basic YXBpYWRtaW46U3BhY2UqMTE3"],
 					 [name:'Content-Type'  , value:"application/json"]],
 			  httpMode: "POST",
 			  ignoreSslErrors: true,
@@ -54,7 +54,7 @@ pipeline {
 //                           validResponseCodes: '200,404,415'		
 //
 
-		           def response = sh(script: "curl -vvv --insecure -L -X POST \'https://10.0.2.4:8075/api/portal/v1.4/proxies/${jsonObj3.id}/image\' -H \'Authorization: Basic YXBpYWRtaW46U3BhY2UqMTE4\' -F \'file=@\"/home/azureuser/images/stormtrooper_icon.PNG\"\' ", returnStdout: true)
+		           def response = sh(script: "curl -vvv --insecure -L -X POST \'https://10.0.2.4:8075/api/portal/v1.4/proxies/${jsonObj3.id}/image\' -H \'Authorization: Basic YXBpYWRtaW46U3BhY2UqMTE3\' -F \'file=@\"/home/azureuser/images/stormtrooper_icon.PNG\"\' ", returnStdout: true)
 
 		
 	}
