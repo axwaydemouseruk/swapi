@@ -8,8 +8,8 @@ info:
 
     ![](https://www.tmforum.org/wp-content/uploads/2020/11/APIBadge.wShadow.GOLD_.png)
 
-    Version 92 is now here on Wednesday 22nd of August 2024.
-  version: '0.92'
+    Version 93 is now here on Wednesday 23rd of August 2024.
+  version: '0.93'
   contact:
     name: David Luke
     email: dluke@axway.com
@@ -172,3 +172,5 @@ tags:
   - name: Planets
   - name: Species
   - name: Starships
+components:
+  securitySchemes: {}
